@@ -1,2 +1,1 @@
-# examples
-Examples of using html2pdf.app
+## Examples of using html2pdf.app

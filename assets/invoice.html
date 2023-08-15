@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Invoice Nr: {{invoiceNr}}</title>
+    <style>
+        body {
+            padding: 30px;
+        }
+        table tbody tr th {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-end">
+            <div class="logo">
+                <a href="https://html2pdf.app">
+                    <img src="https://html2pdf.app/img/logo.svg" alt="html2pdf.app"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <h1 class="mt-5">Invoice</h1>
+    <table class="table mt-5">
+        <tbody>
+        <tr>
+            <th scope="row">Number</th>
+            <td>{{invoiceNr}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Bill to</th>
+            <td>{{billTo}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Invoice Date</th>
+            <td>{{invoiceDate}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Payment Due</th>
+            <td>{{paymentDue}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Order ID</th>
+            <td>{{orderId}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped mt-5">
+        <thead>
+        <tr>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each items}}
+        <tr>
+            <td>{{description}}</td>
+            <td>{{quantity}}</td>
+            <td>{{price}}</td>
+            <td>{{total}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="3" class="text-end">
+                Sub Total
+            </th>
+            <td>
+                {{subTotal}}
+            </td>
+        </tr>
+        <tr>
+            <th colspan="3" class="text-end">
+                Tax (10%)
+            </th>
+            <td>
+                {{tax}}
+            </td>
+        </tr>
+        <tr>
+            <th colspan="3" class="text-end">
+                Total
+            </th>
+            <td>
+                {{total}}
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+    <div class="row mt-5">
+        <div class="col">
+            <small>
+                <strong>Notes:</strong><br/>
+                All amounts in United States Dollars (USD).
+            </small>
+        </div>
+    </div>
+    <hr/>
+    <address>
+        MB Tech256<br/>
+        Address: 3184 Spruce Drive Pittsburgh, PA 15201<br/>
+        Email: <a class="link-secondary" href="https://html2pdf.app">info@html2pdf.app</a>
+    </address>
+</div>
+</body>
+</html>
