@@ -25,7 +25,6 @@ const apiKey = 'd3a0264f70864...'; // get api key on https://html2pdf.app
 
 const response = await axios.post('https://api.html2pdf.app/v1/generate', {
     html,
-    apiKey,
-}, {responseType: 'arraybuffer'});
+}, headers: { 'X-API-KEY': apiKey }, {responseType: 'arraybuffer'});
 
 fs.writeFileSync('./assets/invoice.pdf', response.data);
